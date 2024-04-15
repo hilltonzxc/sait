@@ -93,45 +93,45 @@ footer {
     font-family: Arial, sans-serif; 
 } 
 
+
 .carousel { 
-    display: flex; 
-    overflow: hidden; 
     position: relative; 
-} 
-
-.carousel img { 
     width: 100%; 
+    overflow: hidden; 
+} 
+ 
+.carousel-slide { 
+    display: none; 
+    width: 100%; 
+} 
+ 
+.active { 
     display: block; 
 } 
-
-.align-left { 
-    margin-left: 20px; /* Дополнительный класс для выравнивания карусели по левому краю */ 
-} 
-
+ 
 .carousel img { 
     width: 100%; 
-    display: block; 
+    height: auto; 
 } 
-
-.prev, .next { 
-    position: fixed; 
+ 
+.carousel-prev, .carousel-next { 
+    position: absolute; 
     top: 50%; 
     transform: translateY(-50%); 
-    cursor: pointer; 
-    font-size: 30px; 
-    color: black; 
-    background: rgba(255, 255, 255, 0.5); 
+    background-color: #333; 
+    color: white; 
     padding: 10px; 
-    text-decoration: none; 
+    border: none; 
+    cursor: pointer; 
 } 
-
-.prev { 
+ 
+.carousel-prev { 
     left: 10px; 
 } 
-
-.next { 
+ 
+.carousel-next { 
     right: 10px; 
-} 
+}
 
         
             </style>
@@ -152,46 +152,93 @@ if (isset($_SESSION['success_message'])) {
    
 
 
-<header style="background-color: rgb(#333); color: #ffffff; text-align: center; padding: 10px; margin-bottom: 20px;">    
-    <nav> 
-        <ul class="navigation"> 
-        <li><img src="images/logotip.png" alt="Логотип"></li> 
-        <li><a href="index.php">Главная</a></li>  
-        <li><a href="about.php">О нас</a></li>  
-        <li><a href="contactforma.html">Контакты</a></li> 
-        <li><a href="katalog.php">Каталог</a></li> 
-        <li><a href="promokod.php">Промокоды</a></li> 
-        <li><a href="avtorizform.html">Авторизация</a></li> 
-        <li><a href="registerforma.html">Регистрация</a></li> 
-        <li><a href="cart.php">Корзина</a></li> 
-            <li class="search-form"><input type="text" placeholder="Поиск"><button type="submit">Найти</button></li> 
-        </ul> 
-    </nav> 
-    </header> 
-   
-  
-    
-</body>
+   <header style="background-color: #333; color: #ffffff; text-align: center; padding: 10px; margin-bottom: 20px;">     
+    <nav>  
+        <ul class="navigation">  
+            <li><img src="images/logotip.png" alt="Логотип"></li>  
+            <li><a href="index.php">Главная</a></li>   
+            <li><a href="about.php">О нас</a></li>   
+            <li><a href="contactforma.html">Контакты</a></li>  
+            <li><a href="katalog.php">Каталог</a></li>  
+            <li><a href="promokod.php">Промокоды</a></li>  
+            <li><a href="avtorizform.html">Авторизация</a></li>  
+            <li><a href="registerforma.html">Регистрация</a></li>  
+            <li><a href="cart.php">Корзина</a></li>  
+            <li class="search-form"><input type="text" placeholder="Поиск"><button type="submit">Найти</button></li>  
+        </ul>  
+    </nav>  
+</header>  
 
-<footer>
-    <div class="footer-container">
-        <div class="contact-info">
-            <h3>Контактная информация</h3>
-            <p>Телефон: +7(950)432-51-35</p>
-            <p>Email: SoundRevolution@mail.ru</p>
-            <p>Адрес: ул. Советов,д 20</p>
-        </div>
-        <div class="social-links">  
-            <h3>Социальные сети</h3>  
-            <a href="https://web.telegram.org"><img class="fixed-size" src="images/icons8-телеграмма-app-48.png" alt="Telegram"></a>
-            <a href="https://vk.com/awdadawedf"><img class="fixed-size" src="images/icons8-vk-48.png" alt="Vk"></a>
-        </div>
-        <div class="newsletter">
-            <h3>Подписаться на рассылку</h3>
-            <div class="subscription-form"> 
-                <input type="email" placeholder="Ваш Email"> 
-                <button type="submit">Подписаться</button> 
-            </div>
-        </div>
-    </div>
+<section class="carousel"> 
+        <div class="carousel-slide active"> 
+            <img src="images/Без названия.png" alt="Слайд 1"> 
+        </div> 
+        <div class="carousel-slide"> 
+            <img src="images/gu26lzvybetex73swkuvfjznw1vr2n0g.jpg" alt="Слайд 2"> 
+        </div> 
+        <button class="carousel-prev">←</button> 
+        <button class="carousel-next">→</button> 
+</section> 
+<script> 
+let slideIndex = 0; 
+showSlides(slideIndex); 
+function showSlides(n) { 
+    const slides = document.getElementsByClassName("carousel-slide"); 
+    if (n >= slides.length) { 
+        slideIndex = 0; 
+    } else if (n < 0) { 
+        slideIndex = slides.length - 1; 
+    } 
+ 
+    for (let i = 0; i < slides.length; i++) { 
+        slides[i].style.display = "none"; 
+    } 
+ 
+    slides[slideIndex].style.display = "block"; 
+} 
+function nextSlide() { 
+    showSlides(++slideIndex); 
+} 
+function prevSlide() { 
+    showSlides(--slideIndex); 
+} 
+// Автоматическое перелистывание каждые 3 секунды 
+let intervalId = setInterval(nextSlide, 3000); 
+// Останавливаем автоматическое перелистывание при наведении на карусель 
+document.querySelector(".carousel-container").addEventListener("mouseover", () => { 
+    clearInterval(intervalId); 
+}); 
+// Возобновляем автоматическое перелистывание при уходе курсора с карусели 
+document.querySelector(".carousel-container").addEventListener("mouseout", () => { 
+    intervalId = setInterval(nextSlide, 3000); 
+}); 
+document.querySelector(".carousel-prev").addEventListener("click", () => { 
+    prevSlide(); 
+}); 
+document.querySelector(".carousel-next").addEventListener("click", () => { 
+    nextSlide(); 
+}); 
+</script>
+<footer> 
+    <div class="footer-container"> 
+        <div class="contact-info"> 
+            <h3>Контактная информация</h3> 
+            <p>Телефон: +7(950)432-51-35</p> 
+            <p>Email: SoundRevolution@mail.ru</p> 
+            <p>Адрес: ул. Советов,д 20</p> 
+        </div> 
+        <div class="social-links">   
+            <h3>Социальные сети</h3>   
+            <a href="https://web.telegram.org"><img class="fixed-size" src="images/icons8-телеграмма-app-48.png" alt="Telegram"></a> 
+            <a href="https://vk.com/awdadawedf"><img class="fixed-size" src="images/icons8-vk-48.png" alt="Vk"></a> 
+        </div> 
+        <div class="newsletter"> 
+            <h3>Подписаться на рассылку</h3> 
+            <div class="subscription-form">  
+                <input type="email" placeholder="Ваш Email">  
+                <button type="submit">Подписаться</button>  
+            </div> 
+        </div> 
+    </div> 
+</footer> 
 </html>
