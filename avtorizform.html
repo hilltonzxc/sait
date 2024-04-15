@@ -1,0 +1,128 @@
+<style>
+      footer { 
+            background-color: #333;
+            color: white; 
+            text-align: center; 
+            padding: 20px 0;
+            position: fixed; 
+            bottom: 0; 
+            width: 100%; 
+
+            
+           
+} 
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-info, .social-links, .newsletter {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.social-links a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.newsletter form {
+    display: flex;
+}
+
+.newsletter input {
+    flex: 2;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.newsletter button {
+    flex: 1;
+    padding: 5px 10px;
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+    
+}
+.subscription-form { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 200px; /* Измените на нужную ширину */ 
+    margin: 0 auto;
+} 
+
+</style>
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/js/"> 
+    <link rel="stylesheet" href="css/main 4.css"> 
+</head> 
+<body> 
+    
+    <header style="background-color: rgb(#333); color: #ffffff; text-align: center; padding: 10px; margin-bottom: 20px;">    
+    <nav> 
+        <ul class="navigation"> 
+        <li><img src="images/logotip.png" alt="Логотип"></li> 
+        <li><a href="index.php">Главная</a></li>  
+            <li><a href="about.php">О нас</a></li>  
+            <li><a href="contactforma.html">Контакты</a></li> 
+            <li><a href="katalog.php">Каталог</a></li> 
+            <li><a href="promokod.php">Промокоды</a></li> 
+            <li><a href="avtorizform.html">Авторизация</a></li> 
+            <li><a href="registerforma.html">Регистрация</a></li> 
+            <li><a href="cart.php">Корзина</a></li> 
+            <li class="search-form"><input type="text" placeholder="Поиск"><button type="submit">Найти</button></li> 
+        </ul> 
+    </nav> 
+    </header> 
+    <form action="avtorizac.php" method="POST"> 
+        <h2>Вход</h2>   
+        
+          <div class="form-group">
+            <label for="username">Логин</label>
+            <input type="text" class="form-control" id="login" name="login">
+          </div>
+          <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" class="form-control" id="password" name="password">
+          </div>
+        <input type="submit" value="Войти">   
+    </form> 
+    <footer>
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Контактная информация</h3>
+                <p>Телефон: +7(950)432-51-35</p>
+                <p>Email: SoundRevolution@mail.ru</p>
+                <p>Адрес: ул. Советов,д 20</p>
+            </div>
+            <div class="social-links">  
+                <h3>Социальные сети</h3>  
+                <a href="https://web.telegram.org"><img class="fixed-size" src="images/icons8-телеграмма-app-48.png" alt="Telegram"></a>
+                <a href="https://vk.com/awdadawedf"><img class="fixed-size" src="images/icons8-vk-48.png" alt="Vk"></a>
+            </div>
+            <div class="newsletter">
+                <h3>Подписаться на рассылку</h3>
+                <div class="subscription-form"> 
+                    <input type="email" placeholder="Ваш Email"> 
+                    <button type="submit">Подписаться</button> 
+                </div>
+            </div>
+        </div>
+    </footer>
+</body> 
+</html> 
