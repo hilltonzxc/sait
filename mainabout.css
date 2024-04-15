@@ -1,0 +1,61 @@
+body { 
+    background: linear-gradient(to bottom right,  #99ff99 0%, #ffffff 100%);
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start; /* Центрирует контент по вертикали вверху страницы */
+    align-items: center; 
+    padding-top: 50px; /* Заменяем margin-top на padding-top для отступа сверху */ 
+    font-family: Arial, sans-serif;
+  } 
+  
+
+  
+
+  .container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.about-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.about-section h2 {
+    color: #ffffff;
+}
+
+.about-section p {
+    color: #ffffff;
+}
+
+footer { 
+    background-color: #333;
+    color: white; 
+    text-align: center; 
+    padding: 20px 0;
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+
+    
+   
+} 
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed; /* делаем позицию фиксированной */
+    top: 0; /* закрепляем шапку наверху страницы */
+    width: 100%; /* ширина шапки на всю страницу */
+    z-index: 1000; /* устанавливаем z-index, чтобы шапка была выше других элементов */
+}

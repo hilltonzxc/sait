@@ -1,0 +1,66 @@
+table {  
+    width: auto; /* Используем auto для того, чтобы ширина таблицы автоматически подстраивалась под содержимое */
+    border-collapse: collapse;  
+    margin-top: 20px;  
+  }  
+   
+  th, td {  
+    border: 1px solid black;  
+    padding: 8px;  
+    text-align: left;  
+    width: 150px; /* Устанавливаем фиксированную ширину ячеек */
+  }  
+   
+  th {  
+    background: linear-gradient(to bottom right, #99ff99 0%, #ffffff 100%); 
+  }  
+   
+  tr:nth-child(even) {  
+    background-color: #f2f2f2;  
+  }  
+   
+  body {  
+    background: linear-gradient(to bottom right,  #99ff99 0%, #ffffff 100%); 
+    background-size: cover;  
+    background-repeat: no-repeat;  
+    background-position: center;  
+    height: 100vh;  
+    display: flex;  
+    flex-direction: column; 
+    justify-content: flex-start;  
+    align-items: center;  
+    padding-top: 50px;  
+  }  
+   
+  form {  
+    padding: 20px;  
+    border: 1px solid #463f3f;  
+    border-radius: 5px;  
+    background-color: #ffffff;  
+    max-width: 300px;  
+    width: 100%;  
+    text-align: center;  
+    margin-top: 20px;  
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='submit'] {
+      width: calc(100% - 22px); /* Устанавливаем ширину с учетом padding и border */
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box; /* Чтобы отступы не увеличивали размер элементов */
+  }
+  
+  input[type='submit'] {
+      width: 100%; /* Ширина кнопки равна 100% */
+      background-color: #4CAF50; /* Цвет фона кнопки отправки */
+      color: white; /* Цвет текста кнопки */
+      cursor: pointer; /* Изменение курсора на указатель при наведении */
+  }
+  
+  input[type='submit']:hover {
+      background-color: #45a049; /* Изменение цвета фона кнопки при наведении */
+  }

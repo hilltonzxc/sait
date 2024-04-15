@@ -1,0 +1,55 @@
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin-top: 20px; 
+} 
+
+th, td { 
+  border: 1px solid black; 
+  padding: 8px; 
+  text-align: left; 
+} 
+
+th { 
+  background: linear-gradient(to bottom right, #99ff99 0%, #ffffff 100%);
+} 
+
+tr:nth-child(even) { 
+  background-color: #f2f2f2; 
+} 
+
+body { 
+  background: linear-gradient(to bottom right,  #99ff99 0%, #ffffff 100%);
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  height: 100vh; 
+  display: flex; 
+  flex-direction: column;
+  justify-content: flex-start; /* Центрирует контент по вертикали вверху страницы */
+  align-items: center; 
+  padding-top: 50px; /* Заменяем margin-top на padding-top для отступа сверху */ 
+} 
+
+form { 
+  padding: 20px; 
+  border: 1px solid #463f3f; 
+  border-radius: 5px; 
+  background-color: #ffffff; 
+  max-width: 300px; 
+  width: 100%; 
+  text-align: center; 
+  margin-top: 20px; 
+}
+button {
+
+  display: block;
+  margin: 0 auto; /* Центрирует элемент по горизонтали */
+  background-color: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+
+}

@@ -1,0 +1,128 @@
+body {
+    background: linear-gradient(to bottom right,  #99ff99 0%, #ffffff 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 50px; /* добавляем отступ сверху, чтобы контент не перекрывался под шапкой */
+}
+
+form {
+    padding: 20px;
+    border: 1px solid #463f3f;
+    border-radius: 5px;
+    background-color: #ffffff;
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px; /* добавляем отступ сверху для центрирования формы */
+    box-sizing: border-box; /* Учитываем границу и отступы внутри указанной ширины */
+    margin: 0 auto; /* центрируем форму по горизонтали */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column; /* Размещаем элементы в колонку */
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%; /* Задаем 100% ширины для полей ввода */
+    padding: 8px;
+    margin-top: 5px; /* Дополнительный отступ между элементами */
+    box-sizing: border-box; /* Учитываем границу и отступы внутри указанной ширины */
+}
+
+
+ input[type="submit"], 
+ input[type="hidden"] { 
+     margin: 5px 0; 
+     padding: 8px; 
+     width: 100%; 
+     box-sizing: border-box; 
+     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+ } 
+ input[type="submit"] {
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Добавление закругления углов кнопки на 5 пикселей */
+}
+
+input[type="submit"]:hover {
+    background-color: #000000;
+}
+header { 
+    background-color: #333; 
+    color: white; 
+    text-align: center; 
+    padding: 10px; 
+    margin-bottom: 20px; 
+} 
+
+footer { 
+    background-color: #333; 
+    color: white; 
+    text-align: center; 
+    padding: 10px; 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+}
+
+nav {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: fixed; /* Фиксированное положение */
+    top: 0; /* Установка верхнего края навигации в самый верх страницы */
+    left: 0; /* Установка левого края навигации в самый левый угол */
+    width: 100%; /* Растягиваем навигацию на всю ширину */
+    background-color: #333;
+    color: white;
+    z-index: 1000; /* Устанавливаем z-index, чтобы навигация была выше остального контента */
+}
+
+.navigation li {
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.navigation a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+button {
+
+    display: block;
+    margin: 0 auto; /* Центрирует элемент по горизонтали */
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+
+}
