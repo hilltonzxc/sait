@@ -40,7 +40,7 @@
             <th>Отчество</th>
             <th>Почта</th>
             <th>Логин</th>
-            <th>Пароль</th>
+            
         </tr>
         <tr>
 
@@ -59,7 +59,6 @@
                 echo "<td>".$row['patronymic']."</td>";
                 echo "<td>".$row['email']."</td>";
                 echo "<td>".$row['login']."</td>";
-                echo "<td>".$row['password']."</td>";
                 echo "</tr>";
             }
         } else {
@@ -69,7 +68,8 @@
         mysqli_close($link);
         ?>
     </table>
-    <a href="index.html">
+    <a href="Wathingmassage.php" class="btn btn-primary mt-3">Просмотреть сообщения</a>
+    <a href="index.php">
         <button>Выход</button>
 </body>
 </html>

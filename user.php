@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="css/main 5 promo.css"> 
 <style>
+     
     .footer-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -104,17 +105,20 @@
     <header style="background-color: rgb(#333); color: #ffffff; text-align: center; padding: 10px; margin-bottom: 20px;">    
         <nav> 
             <ul class="navigation"> 
-            <li><a href="index.html">Главная</a></li> 
+            <li><a href="index.php">Главная</a></li> 
             <li><a href="about.php">О нас</a></li> 
             <li><a href="contacts.php">Контакты</a></li> 
             <li><a href="katalog.php">Каталог</a></li> 
             <li><a href="promokod.php">Промокоды</a></li> 
             <li><a href="avtorizform.html">Авторизация</a></li> 
-            <li><a href="registerforma.html">Регистрация</a></li> 
+            <li><a href="registerforma.html">Регистрация</a></li>
+            <li><a href="cart.php">Корзина</a></li>
             <li class="search-form"><input type="text" placeholder="Поиск"><button type="submit">Найти</button></li> 
             </ul> 
         </nav> 
         </header> 
+        
+</header>
 <?php
 session_start();
 include('connect.php');
@@ -192,6 +196,7 @@ if (isset($id_users)) {
         }
 
         echo "</table>";
+        
     } else {
         echo "Информация о заказах не найдена.";
     }
@@ -203,7 +208,7 @@ if (isset($id_users)) {
 }
 ?>
  <h3>Изменить данные:</h3>
-<form action='avtoriz.php' method='post'>
+<form action='user.php' method='post'>
     <input type='text' name='username' placeholder='Имя'><br>
     <input type='text' name='surname' placeholder='Фамилия'><br>
     <input type='text' name='patronymic' placeholder='Отчество'><br>
@@ -211,4 +216,62 @@ if (isset($id_users)) {
     <input type='text' name='login' placeholder='Логин'><br>
     <input type='submit' value='Сохранить изменения'>
 </form>
+<?php
+include('connect.php');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!empty($_POST['username']) && !empty($_POST['surname']) && !empty($_POST['patronymic']) && !empty($_POST['email']) && !empty($_POST['login'])) {
+        // Получение данных из формы
+        $username = $_POST['username'];
+        $surname = $_POST['surname'];
+        $patronymic = $_POST['patronymic'];
+        $email = $_POST['email'];
+        $login = $_POST['login'];
+
+        // Обновление данных в базе
+        $id_users = $_SESSION['id']; // Получаем ID пользователя из сессии
+        $query_update = "UPDATE users SET username = '$username', surname = '$surname', patronymic = '$patronymic', email = '$email', login = '$login' WHERE id_users = '$id_users'";
+        $result_update = mysqli_query($link, $query_update);
+
+        if ($result_update) {
+            echo "Данные успешно обновлены!";
+        } else {
+            echo "Ошибка при обновлении данных: " . mysqli_error($link);
+        }
+    } else {
+        echo "Пожалуйста, заполните все поля формы.";
+    }
+}
+?>
+<div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Отправка сообщения</h5>
+                        <form action="send_message.php" method="post">
+                            <div class="form-group">
+                                <label for="recipient">Получатель:</label>
+                                <select class="form-control" id="recipient" name="recipient">
+                                    <?php
+                                    include("connect.php");
+                                    $query = "SELECT * FROM users";
+                                    $result = mysqli_query($link, $query) or die(mysqli_error($link));
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo '<option value="' . $row['id_users'] . '">' . $row['surname'] . ' ' . $row['username'] . '</option>';
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Сообщение:</label>
+                                <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 <a href="avtorizform.html"><button>Выход</button></a>
